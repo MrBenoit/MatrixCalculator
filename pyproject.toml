@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "matrixcalculator2.0"
+version = "1.0.0"
+description = "Simple Matrix Calculator"
+authors = ["Herman <111755919+MrBenoit@users.noreply.github.com>"]
+license = "MIT License"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pyqt6 = "^6.6.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
