@@ -268,6 +268,43 @@ class Ui_MainWindow(object):
                                     "    border: 2px solid;\n"
                                     "}")
         self.ClearBtn.setObjectName("TransposeBtn2")
+
+        self.InverseBtn = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.InverseBtn.setGeometry(QtCore.QRect(10, 460, 280, 40))
+        self.InverseBtn.setStyleSheet("QPushButton {\n"
+                                         "    background-color: rgb(52, 80, 175);\n"
+                                         "    color: white;\n"
+                                         "    border-radius: 10px;\n"
+                                         "    font-size: 20px;\n"
+                                         "    font-family: \"Nunito Sans\", sans-serif;\n"
+                                         "    border: 2px solid;\n"
+                                         "}\n"
+                                         "\n"
+                                         "QPushButton:hover{\n"
+                                         "    background-color: rgb(26, 44, 105);\n"
+                                         "    color: white;\n"
+                                         "    border: 2px solid;\n"
+                                         "}")
+        self.InverseBtn.setObjectName("ReversBtn")
+
+        self.InverseBtn2 = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.InverseBtn2.setGeometry(QtCore.QRect(740, 460, 280, 40))
+        self.InverseBtn2.setStyleSheet("QPushButton {\n"
+                                         "    background-color: rgb(52, 80, 175);\n"
+                                         "    color: white;\n"
+                                         "    border-radius: 10px;\n"
+                                         "    font-size: 20px;\n"
+                                         "    font-family: \"Nunito Sans\", sans-serif;\n"
+                                         "    border: 2px solid;\n"
+                                         "}\n"
+                                         "\n"
+                                         "QPushButton:hover{\n"
+                                         "    background-color: rgb(26, 44, 105);\n"
+                                         "    color: white;\n"
+                                         "    border: 2px solid;\n"
+                                         "}")
+        self.InverseBtn2.setObjectName("ReversBtn2")
+
         self.AdditionBtn.raise_()
         self.SubtractionBtn.raise_()
         self.MultiplyBtn.raise_()
@@ -284,6 +321,8 @@ class Ui_MainWindow(object):
         self.result.raise_()
         self.intInput.raise_()
         self.MultiplyToIntBtn2.raise_()
+        self.InverseBtn.raise_()
+        self.InverseBtn2.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -299,6 +338,8 @@ class Ui_MainWindow(object):
         self.MultiplyToIntBtn.clicked.connect(self.MultiplyToIntClick)
         self.MultiplyToIntBtn2.clicked.connect(self.MultiplyToInt2Click)
         self.ClearBtn.clicked.connect(self.ClearClick)
+        self.InverseBtn.clicked.connect(self.InverseBtnClicked)
+        self.InverseBtn2.clicked.connect(self.InverseBtnClicked2)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -318,6 +359,8 @@ class Ui_MainWindow(object):
         self.TransposeBtn.setText(_translate("MainWindow", "Транспонировать \'А\'"))
         self.TransposeBtn2.setText(_translate("MainWindow", "Транспонировать \'Б\'"))
         self.ClearBtn.setText(_translate("MainWindow", "Очистить"))
+        self.InverseBtn.setText(_translate("MainWindow", "Найти обратное \'А\'"))
+        self.InverseBtn2.setText(_translate("MainWindow", "Найти обратное \'Б\'"))
 
     def ClearClick(self, checked):
         self.result.setPlainText("")
@@ -455,6 +498,60 @@ class Ui_MainWindow(object):
                 "\n".join(
                     [" ".join([str(x) for x in y]) for y in matrix_a.multiply(int(self.intInput2.text()))]))
 
+        except Exception as error:
+            QMessageBox.about(MainWindow, "Error", "Произошла ошибка, попробуйте снова")
+            print(error)
+
+    def InverseBtnClicked(self, checked):
+        try:
+            matrixA = [[float(x) for x in row.split()] for row in self.input1.toPlainText().split("\n")]
+            if not matrixA:
+                raise ValueError("Пустой ввод")
+
+            matrix_a = MatrixFunc(len(matrixA), len(matrixA[0]))
+            matrix_a.create(matrixA)
+
+            det_a = MatrixFunc.determinant(matrix_a.matrix)
+            if det_a == 0:
+                raise ZeroDivisionError("Определитель равен нулю, обратная матрица не существует.")
+
+            identity_matrix = MatrixFunc.create_identity_matrix(len(matrixA))
+            cofactor = MatrixFunc.cofactor_matrix(matrix_a.matrix)
+            matrix_a.matrix = cofactor
+            matrix_a.transpose()
+
+            inverse_matrix = matrix_a.multiply(1 / det_a)
+            self.result.setPlainText("\n".join(" ".join(map(str, row)) for row in inverse_matrix))
+
+        except ZeroDivisionError as zde:
+            QMessageBox.about(MainWindow, "Error", str(zde))
+        except Exception as error:
+            QMessageBox.about(MainWindow, "Error", "Произошла ошибка, попробуйте снова")
+            print(error)
+
+    def InverseBtnClicked2(self, checked):
+        try:
+            matrixA = [[float(x) for x in row.split()] for row in self.input2.toPlainText().split("\n")]
+            if not matrixA:
+                raise ValueError("Пустой ввод")
+
+            matrix_a = MatrixFunc(len(matrixA), len(matrixA[0]))
+            matrix_a.create(matrixA)
+
+            det_a = MatrixFunc.determinant(matrix_a.matrix)
+            if det_a == 0:
+                raise ZeroDivisionError("Определитель равен нулю, обратная матрица не существует.")
+
+            identity_matrix = MatrixFunc.create_identity_matrix(len(matrixA))
+            cofactor = MatrixFunc.cofactor_matrix(matrix_a.matrix)
+            matrix_a.matrix = cofactor
+            matrix_a.transpose()
+
+            inverse_matrix = matrix_a.multiply(1 / det_a)
+            self.result.setPlainText("\n".join(" ".join(map(str, row)) for row in inverse_matrix))
+
+        except ZeroDivisionError as zde:
+            QMessageBox.about(MainWindow, "Error", str(zde))
         except Exception as error:
             QMessageBox.about(MainWindow, "Error", "Произошла ошибка, попробуйте снова")
             print(error)

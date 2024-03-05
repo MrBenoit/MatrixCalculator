@@ -1,3 +1,6 @@
+import copy
+
+
 class MatrixFunc:
     def __init__(self, rows: int, columns: int):
         self.matrix = None
@@ -70,3 +73,23 @@ class MatrixFunc:
             else:
                 recur -= rex
         return recur
+
+    @staticmethod
+    def create_identity_matrix(size):
+        return [[1 if i == j else 0 for i in range(size)] for j in range(size)]
+
+    @staticmethod
+    def cofactor_matrix(matrix):
+        size = len(matrix)
+        cofactor_matrix = []
+        for i in range(size):
+            temp_cofactor = []
+            for j in range(size):
+                temp_matrix = copy.deepcopy(matrix)
+                temp_matrix.pop(i)
+                for temp_row in temp_matrix:
+                    temp_row.pop(j)
+                cofactor_element = MatrixFunc.determinant(temp_matrix) * (-1) ** (i + j)
+                temp_cofactor.append(cofactor_element)
+            cofactor_matrix.append(temp_cofactor)
+        return cofactor_matrix
