@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1100</width>
+    <height>530</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1000</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>Nunito Sans</family>
+   </font>
+  </property>
+  <property name="mouseTracking">
+   <bool>false</bool>
+  </property>
+  <property name="windowTitle">
+   <string>Калькулятор Матриц</string>
+  </property>
+  <property name="windowOpacity">
+   <double>1.000000000000000</double>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(56, 62, 84);
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPlainTextEdit" name="input2">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>10</y>
+      <width>340</width>
+      <height>250</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(28, 33, 52);
+	border-radius: 10px;
+	font-size: 20px;
+	padding: 5px;
+	color: #f3f3f3;
+
+</string>
+    </property>
+    <property name="plainText">
+     <string/>
+    </property>
+    <property name="overwriteMode">
+     <bool>false</bool>
+    </property>
+    <property name="backgroundVisible">
+     <bool>false</bool>
+    </property>
+    <property name="placeholderText">
+     <string>Введите матрицу</string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="input1">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>340</width>
+      <height>250</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">	background-color: rgb(28, 33, 52);
+	border-radius: 10px;
+	font-size: 20px;
+	padding: 5px;
+	color: #f3f3f3;</string>
+    </property>
+    <property name="plainText">
+     <string/>
+    </property>
+    <property name="centerOnScroll">
+     <bool>false</bool>
+    </property>
+    <property name="placeholderText">
+     <string>Введите матрицу</string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="result">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>260</y>
+      <width>340</width>
+      <height>250</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">	background-color: rgb(36, 41, 61);
+	border-radius: 10px;
+	font-size: 20px;
+	padding: 5px;
+	color: #f3f3f3;</string>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAsNeeded</enum>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+    <property name="plainText">
+     <string/>
+    </property>
+    <property name="cursorWidth">
+     <number>1</number>
+    </property>
+    <property name="backgroundVisible">
+     <bool>false</bool>
+    </property>
+    <property name="centerOnScroll">
+     <bool>false</bool>
+    </property>
+    <property name="placeholderText">
+     <string>Результат</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="AdditionBtn">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>10</y>
+      <width>100</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	background-color: rgb(52, 80, 175);
+	color: white;
+	border-radius: 10px;
+	font-size: 20px;
+	font-family: &quot;Nunito Sans&quot;, sans-serif;
+	border: 2px solid;
+}
+
+QPushButton:hover {
+	background-color: rgb(26, 44, 105);
+	color: white;
+	border: 2px solid;
+}</string>
+    </property>
+    <property name="text">
+     <string>A + B</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="SubtractionBtn">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>50</y>
+      <width>100</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	background-color: rgb(52, 80, 175);
+	color: white;
+	border-radius: 10px;
+	font-size: 20px;
+	font-family: &quot;Nunito Sans&quot;, sans-serif;
+	border: 2px solid;
+}
+
+QPushButton:hover{
+	background-color: rgb(26, 44, 105);
+	color: white;
+	border: 2px solid;
+}</string>
+    </property>
+    <property name="text">
+     <string>A - B</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="MultiplyBtn">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>90</y>
+      <width>100</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	background-color: rgb(52, 80, 175);
+	color: white;
+	border-radius: 10px;
+	font-size: 20px;
+	font-family: &quot;Nunito Sans&quot;, sans-serif;
+	border: 2px solid;
+}
+
+QPushButton:hover{
+	background-color: rgb(26, 44, 105);
+	color: white;
+	border: 2px solid;
+}</string>
+    </property>
+    <property name="text">
+     <string>A * B</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="DivideBtn">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>130</y>
+      <width>100</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	background-color: rgb(52, 80, 175);
+	color: white;
+	border-radius: 10px;
+	font-size: 20px;
+	font-family: &quot;Nunito Sans&quot;, sans-serif;
+	border: 2px solid;
+}
+
+QPushButton:hover{
+	background-color: rgb(26, 44, 105);
+	color: white;
+	border: 2px solid;
+}</string>
+    </property>
+    <property name="text">
+     <string>A / B</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="DeterminantBnt">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>310</y>
+      <width>280</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	background-color: rgb(52, 80, 175);
+	color: white;
+	border-radius: 10px;
+	font-size: 20px;
+	font-family: &quot;Nunito Sans&quot;, sans-serif;
+	border: 2px solid;
+}
+
+QPushButton:hover{
+	background-color: rgb(26, 44, 105);
+	color: white;
+	border: 2px solid;
+}</string>
+    </property>
+    <property name="text">
+     <string>Найти определитель 'А'</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="DeterminantBnt2">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>310</y>
+      <width>280</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	background-color: rgb(52, 80, 175);
+	color: white;
+	border-radius: 10px;
+	font-size: 20px;
+	font-family: &quot;Nunito Sans&quot;, sans-serif;
+	border: 2px solid;
+}
+
+QPushButton:hover{
+	background-color: rgb(26, 44, 105);
+	color: white;
+	border: 2px solid;
+}</string>
+    </property>
+    <property name="text">
+     <string>Найти определитель 'Б'</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>-30</x>
+      <y>260</y>
+      <width>400</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 25px;
+font-family: 'Nunito Sans', serif;
+	color: white;
+
+</string>
+    </property>
+    <property name="text">
+     <string>Матрица А</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::AutoText</enum>
+    </property>
+    <property name="scaledContents">
+     <bool>false</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>260</y>
+      <width>400</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 25px;
+font-family: 'Nunito Sans', serif;
+	color: white;
+
+</string>
+    </property>
+    <property name="text">
+     <string>Матрица Б</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::AutoText</enum>
+    </property>
+    <property name="scaledContents">
+     <bool>false</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="intInput">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>360</y>
+      <width>100</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">	background-color: rgb(28, 33, 52);
+	border-radius: 10px;
+	font-size: 20px;
+	padding: 5px;
+	color: #f3f3f3;</string>
+    </property>
+    <property name="inputMask">
+     <string/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="MultiplyToIntBtn2">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>360</y>
+      <width>241</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	background-color: rgb(52, 80, 175);
+	color: white;
+	border-radius: 10px;
+	font-size: 20px;
+	font-family: &quot;Nunito Sans&quot;, sans-serif;
+	border: 2px solid;
+}
+
+QPushButton:hover{
+	background-color: rgb(26, 44, 105);
+	color: white;
+	border: 2px solid;
+}</string>
+    </property>
+    <property name="text">
+     <string>Умножить 'Б' на число</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="intInput2">
+    <property name="geometry">
+     <rect>
+      <x>990</x>
+      <y>360</y>
+      <width>100</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">	background-color: rgb(28, 33, 52);
+	border-radius: 10px;
+	font-size: 20px;
+	padding: 5px;
+	color: #f3f3f3;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="MultiplyToIntBtn">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>360</y>
+      <width>241</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	background-color: rgb(52, 80, 175);
+	color: white;
+	border-radius: 10px;
+	font-size: 20px;
+	font-family: &quot;Nunito Sans&quot;, sans-serif;
+	border: 2px solid;
+}
+
+QPushButton:hover{
+	background-color: rgb(26, 44, 105);
+	color: white;
+	border: 2px solid;
+}</string>
+    </property>
+    <property name="text">
+     <string>Умножить 'А' на число</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="TransposeBtn">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>410</y>
+      <width>280</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	background-color: rgb(52, 80, 175);
+	color: white;
+	border-radius: 10px;
+	font-size: 20px;
+	font-family: &quot;Nunito Sans&quot;, sans-serif;
+	border: 2px solid;
+}
+
+QPushButton:hover{
+	background-color: rgb(26, 44, 105);
+	color: white;
+	border: 2px solid;
+}</string>
+    </property>
+    <property name="text">
+     <string>Транспонировать 'А'</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="TransposeBtn2">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>410</y>
+      <width>280</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	background-color: rgb(52, 80, 175);
+	color: white;
+	border-radius: 10px;
+	font-size: 20px;
+	font-family: &quot;Nunito Sans&quot;, sans-serif;
+	border: 2px solid;
+}
+
+QPushButton:hover{
+	background-color: rgb(26, 44, 105);
+	color: white;
+	border: 2px solid;
+}</string>
+    </property>
+    <property name="text">
+     <string>Транспонировать 'Б'</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="DivideBtn_2">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>220</y>
+      <width>100</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">    QPushButton {
+        background-color: #cc4040;
+        color: white;
+        border-radius: 10px;
+        font-size: 20px;
+        font-family: &quot;Nunito Sans&quot;, sans-serif;
+        border: 2px solid;
+    }
+
+    QPushButton:hover {
+        background-color: #832727;
+        color: white;
+        border: 2px solid;
+    }</string>
+    </property>
+    <property name="text">
+     <string>Очистить</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="TransposeBtn_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>460</y>
+      <width>280</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	background-color: rgb(52, 80, 175);
+	color: white;
+	border-radius: 10px;
+	font-size: 20px;
+	font-family: &quot;Nunito Sans&quot;, sans-serif;
+	border: 2px solid;
+}
+
+QPushButton:hover{
+	background-color: rgb(26, 44, 105);
+	color: white;
+	border: 2px solid;
+}</string>
+    </property>
+    <property name="text">
+     <string>Обратная матрица &quot;А&quot;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="TransposeBtn_3">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>460</y>
+      <width>280</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	background-color: rgb(52, 80, 175);
+	color: white;
+	border-radius: 10px;
+	font-size: 20px;
+	font-family: &quot;Nunito Sans&quot;, sans-serif;
+	border: 2px solid;
+}
+
+QPushButton:hover{
+	background-color: rgb(26, 44, 105);
+	color: white;
+	border: 2px solid;
+}</string>
+    </property>
+    <property name="text">
+     <string>Обратная матрица &quot;Б&quot;</string>
+    </property>
+   </widget>
+   <zorder>AdditionBtn</zorder>
+   <zorder>SubtractionBtn</zorder>
+   <zorder>MultiplyBtn</zorder>
+   <zorder>DivideBtn</zorder>
+   <zorder>DeterminantBnt</zorder>
+   <zorder>DeterminantBnt2</zorder>
+   <zorder>intInput2</zorder>
+   <zorder>MultiplyToIntBtn</zorder>
+   <zorder>TransposeBtn</zorder>
+   <zorder>TransposeBtn2</zorder>
+   <zorder>label_2</zorder>
+   <zorder>label</zorder>
+   <zorder>input2</zorder>
+   <zorder>input1</zorder>
+   <zorder>result</zorder>
+   <zorder>intInput</zorder>
+   <zorder>MultiplyToIntBtn2</zorder>
+   <zorder>DivideBtn_2</zorder>
+   <zorder>TransposeBtn_2</zorder>
+   <zorder>TransposeBtn_3</zorder>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
